@@ -1,0 +1,5 @@
+{
+  "popularity_baseline": "83ddf3479e584ee1bb8d2030927f2a97",
+  "item_knn_cf": "92d9ca474b6c4ad0adcb1cc1dec03e83",
+  "svd_matrix_factorization": "f77a8140503c4f9ea8098f65c3bf4665"
+}

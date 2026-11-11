@@ -1,0 +1,36 @@
+10:04:03.006 | INFO    | prefect - Starting temporary server on http://127.0.0.1:8260
+See https://www.prefect.io/docs/v3/concepts/server#how-to-guides for more information on running a dedicated Prefect server.
+10:04:07.272 | INFO    | Flow run 'hairy-phoenix' - Beginning flow run 'hairy-phoenix' for flow 'recommendation-pipeline'
+10:04:07 | INFO | ingestion | Raw CSVs not found (or regeneration requested) -> generating synthetic data
+10:04:13 | INFO | ingestion.generate | Clean synthetic data: 2000 users, 500 items, 52491 interactions
+10:04:13 | INFO | ingestion.generate | Injected dirty records: interactions=53042 (incl. duplicates), users=2020, items=505
+10:04:13 | INFO | ingestion | Ingested users        rows=2020 cols=['user_id', 'age', 'gender', 'country', 'signup_date']
+10:04:13 | INFO | ingestion | Ingested items        rows=505 cols=['item_id', 'title', 'category', 'price', 'release_year']
+10:04:13 | INFO | ingestion | Ingested interactions rows=53042 cols=['user_id', 'item_id', 'rating', 'timestamp']
+10:04:13.769 | INFO    | Task run '1_ingest-b9f' - Finished in state Completed()
+10:04:14 | INFO | validation | Validated users        input=2020 valid=1970 rejected=50
+10:04:14 | INFO | validation | Validated items        input=505 valid=490 rejected=15
+10:04:14 | INFO | validation | Validated interactions input=53042 valid=48562 rejected=4480
+10:04:14.023 | INFO    | Task run '2_validate-6ed' - Finished in state Completed()
+10:04:14 | INFO | preparation | Removed 0 repeated user-item pairs (kept latest)
+10:04:14 | INFO | preparation | Time split at 2024-08-23 -> train=38849 test=9713 (dropped 0 cold-start test rows)
+10:04:14.684 | INFO    | Task run '3_prepare-558' - Finished in state Completed()
+10:04:14 | INFO | transformation | User-item matrix (1970, 490), density=0.0402, positives=20457
+10:04:14.856 | INFO    | Task run '4_transform-44e' - Finished in state Completed()
+10:04:15 | INFO | features | Features written: users=1970 (8 cols) items=490 (7 cols) pairs=38849
+10:04:15.316 | INFO    | Task run '5_build_features-14f' - Finished in state Completed()
+2026/11/11 10:04:16 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/11/11 10:04:16 INFO mlflow.store.db.utils: Updating database tables
+2026/11/11 10:04:17 INFO mlflow.tracking.fluent: Experiment with name 'recommendation-pipeline' does not exist. Creating a new experiment.
+10:04:17 | INFO | training | Trained popularity_baseline (run 83ddf347)
+10:04:17 | INFO | training | Trained item_knn_cf (run 92d9ca47)
+10:04:30 | INFO | training | Trained svd_matrix_factorization (run f77a8140)
+10:04:30.122 | INFO    | Task run '6_train_models-88b' - Finished in state Completed()
+10:04:30 | INFO | evaluation | popularity_baseline: {'precision@5': 0.0596, 'recall@5': 0.1028, 'ndcg@5': 0.0966, 'coverage@5': 0.0388, 'diversity@5': 0.8239, 'precision@10': 0.0484, 'recall@10': 0.1643, 'ndcg@10': 0.119, 'coverage@10': 0.0592, 'diversity@10': 0.8352, 'n_eval_users': 1612, 'rmse': 0.9024, 'mae': 0.7341}
+10:04:30 | INFO | evaluation | item_knn_cf: {'precision@5': 0.1599, 'recall@5': 0.2417, 'ndcg@5': 0.2361, 'coverage@5': 0.3224, 'diversity@5': 0.2718, 'precision@10': 0.1192, 'recall@10': 0.3621, 'ndcg@10': 0.2767, 'coverage@10': 0.4755, 'diversity@10': 0.312, 'n_eval_users': 1612}
+10:04:30 | INFO | evaluation | svd_matrix_factorization: {'precision@5': 0.1185, 'recall@5': 0.1731, 'ndcg@5': 0.1725, 'coverage@5': 0.4204, 'diversity@5': 0.4852, 'precision@10': 0.0916, 'recall@10': 0.2769, 'ndcg@10': 0.208, 'coverage@10': 0.5469, 'diversity@10': 0.5339, 'n_eval_users': 1612, 'rmse': 0.8191, 'mae': 0.651}
+10:04:30.745 | INFO    | Task run '7_evaluate_models-179' - Finished in state Completed()
+10:04:30.761 | INFO    | Task run '8_report-173' - All reports generated in reports/
+10:04:30.763 | INFO    | Task run '8_report-173' - Finished in state Completed()
+10:04:30.806 | INFO    | Flow run 'hairy-phoenix' - Finished in state Completed()
+10:04:30.838 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8260

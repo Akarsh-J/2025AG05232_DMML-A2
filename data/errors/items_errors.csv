@@ -1,0 +1,16 @@
+source_row,error_reasons,item_id,title,category,price,release_year
+50,negative_price,I0049,Product 49,GROCERY,-5.0,2018
+145,negative_price,I0144,Product 144,BEAUTY,-5.0,2016
+161,negative_price,I0160,Product 160,Music,-5.0,2023
+181,price_wrong_type,I0180,Product 180,Beauty,abc,2015
+197,price_wrong_type,I0196,Product 196,Grocery,abc,2022
+238,price_wrong_type,I0237,Product 237,Music,abc,2019
+247,negative_price,I0246,Product 246,Electronics,-5.0,2016
+307,price_wrong_type,I0306,Product 306,Music,abc,2018
+440,negative_price,I0439,Product 439,Grocery,-5.0,2023
+496,price_wrong_type,I0495,Product 495,Electronics,abc,2019
+502,duplicate_item_id,I0165,Product 165,Books,34.72,2019
+503,duplicate_item_id,I0221,Product 221,Electronics,77.19,2023
+504,duplicate_item_id,I0385,Product 385,Beauty,59.16,2017
+505,duplicate_item_id,I0402,Product 402,Fashion,16.04,2020
+506,duplicate_item_id,I0273,Product 273,,40.13,2019

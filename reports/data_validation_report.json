@@ -1,0 +1,182 @@
+{
+  "totals": {
+    "users": {
+      "input": 2020,
+      "valid": 1970,
+      "rejected": 50
+    },
+    "items": {
+      "input": 505,
+      "valid": 490,
+      "rejected": 15
+    },
+    "interactions": {
+      "input": 53042,
+      "valid": 48562,
+      "rejected": 4480
+    }
+  },
+  "checks": [
+    {
+      "table": "users",
+      "check": "missing_user_id",
+      "severity": "reject",
+      "violations": 0,
+      "pct": 0.0
+    },
+    {
+      "table": "users",
+      "check": "duplicate_user_id",
+      "severity": "reject",
+      "violations": 20,
+      "pct": 0.99
+    },
+    {
+      "table": "users",
+      "check": "age_wrong_type",
+      "severity": "reject",
+      "violations": 20,
+      "pct": 0.99
+    },
+    {
+      "table": "users",
+      "check": "age_out_of_range",
+      "severity": "reject",
+      "violations": 10,
+      "pct": 0.495
+    },
+    {
+      "table": "users",
+      "check": "invalid_signup_date",
+      "severity": "reject",
+      "violations": 0,
+      "pct": 0.0
+    },
+    {
+      "table": "users",
+      "check": "missing_age",
+      "severity": "warn",
+      "violations": 82,
+      "pct": 4.059
+    },
+    {
+      "table": "users",
+      "check": "missing_country",
+      "severity": "warn",
+      "violations": 60,
+      "pct": 2.97
+    },
+    {
+      "table": "items",
+      "check": "missing_item_id",
+      "severity": "reject",
+      "violations": 0,
+      "pct": 0.0
+    },
+    {
+      "table": "items",
+      "check": "duplicate_item_id",
+      "severity": "reject",
+      "violations": 5,
+      "pct": 0.99
+    },
+    {
+      "table": "items",
+      "check": "price_wrong_type",
+      "severity": "reject",
+      "violations": 5,
+      "pct": 0.99
+    },
+    {
+      "table": "items",
+      "check": "negative_price",
+      "severity": "reject",
+      "violations": 5,
+      "pct": 0.99
+    },
+    {
+      "table": "items",
+      "check": "missing_category",
+      "severity": "warn",
+      "violations": 21,
+      "pct": 4.158
+    },
+    {
+      "table": "interactions",
+      "check": "missing_user_id",
+      "severity": "reject",
+      "violations": 234,
+      "pct": 0.441
+    },
+    {
+      "table": "interactions",
+      "check": "missing_item_id",
+      "severity": "reject",
+      "violations": 0,
+      "pct": 0.0
+    },
+    {
+      "table": "interactions",
+      "check": "missing_rating",
+      "severity": "reject",
+      "violations": 317,
+      "pct": 0.598
+    },
+    {
+      "table": "interactions",
+      "check": "rating_wrong_type",
+      "severity": "reject",
+      "violations": 158,
+      "pct": 0.298
+    },
+    {
+      "table": "interactions",
+      "check": "rating_out_of_range",
+      "severity": "reject",
+      "violations": 391,
+      "pct": 0.737
+    },
+    {
+      "table": "interactions",
+      "check": "invalid_timestamp_format",
+      "severity": "reject",
+      "violations": 158,
+      "pct": 0.298
+    },
+    {
+      "table": "interactions",
+      "check": "timestamp_in_future",
+      "severity": "reject",
+      "violations": 318,
+      "pct": 0.6
+    },
+    {
+      "table": "interactions",
+      "check": "timestamp_too_old",
+      "severity": "reject",
+      "violations": 79,
+      "pct": 0.149
+    },
+    {
+      "table": "interactions",
+      "check": "duplicate_interaction",
+      "severity": "reject",
+      "violations": 551,
+      "pct": 1.039
+    },
+    {
+      "table": "interactions",
+      "check": "orphan_user_id (referential integrity)",
+      "severity": "reject",
+      "violations": 1012,
+      "pct": 1.908
+    },
+    {
+      "table": "interactions",
+      "check": "orphan_item_id (referential integrity)",
+      "severity": "reject",
+      "violations": 1380,
+      "pct": 2.602
+    }
+  ]
+}

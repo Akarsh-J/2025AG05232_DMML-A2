@@ -1,0 +1,41 @@
+{
+  "ingested_at": "2026-11-11T10:04:13.691827+00:00",
+  "source": "synthetic/CSV",
+  "tables": {
+    "users": {
+      "file": "data/raw/users.csv",
+      "rows": 2020,
+      "columns": [
+        "user_id",
+        "age",
+        "gender",
+        "country",
+        "signup_date"
+      ],
+      "md5": "5d351fdf62ebe61d35c8b4b259fd1fe4"
+    },
+    "items": {
+      "file": "data/raw/items.csv",
+      "rows": 505,
+      "columns": [
+        "item_id",
+        "title",
+        "category",
+        "price",
+        "release_year"
+      ],
+      "md5": "a33c203a9a15bd31dab29912b9008751"
+    },
+    "interactions": {
+      "file": "data/raw/interactions.csv",
+      "rows": 53042,
+      "columns": [
+        "user_id",
+        "item_id",
+        "rating",
+        "timestamp"
+      ],
+      "md5": "96d4f56327969e5de8658d697bae5e1c"
+    }
+  }
+}
