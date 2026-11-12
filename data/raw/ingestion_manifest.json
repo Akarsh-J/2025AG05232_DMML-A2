@@ -1,5 +1,5 @@
 {
-  "ingested_at": "2026-11-11T10:04:13.691827+00:00",
+  "ingested_at": "2026-11-12T09:42:33.167323+00:00",
   "source": "synthetic/CSV",
   "tables": {
     "users": {
