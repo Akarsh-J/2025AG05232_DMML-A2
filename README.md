@@ -48,8 +48,6 @@ python -m src.evaluation.evaluate
 python -m src.training.predict --user U0001 --k 10   # top-10 for a user (cold-start users fall back to popularity)
 pytest -q                                              # unit tests (metrics, split, validation)
 mlflow ui --backend-store-uri sqlite:///mlflow.db      # browse runs: params, metrics, model artifacts
-python reports/make_diagrams.py                        # regenerate diagrams
-python reports/make_report.py                          # regenerate the PDF report
 ```
 
 ## Project structure
@@ -62,7 +60,7 @@ src/ingestion, validation, preparation, transformation, features, training, eval
 dags/             Prefect flow (recommendation_flow.py)
 configs/          config.yaml (all parameters)
 models/           trained models (.pkl) + MLflow run ids
-reports/          validation report, feature catalog, model results, diagrams, run log, final report
+reports/          validation report, feature catalog, model results, diagrams, run log
 tests/            pytest unit tests
 ```
 
@@ -79,7 +77,7 @@ tests/            pytest unit tests
 | Orchestration | `dags/` | Prefect flow, 8 tasks, ordered dependencies, 1 retry, cron schedule |
 
 ## Results (K = 10, time-based hold-out)
-See `reports/model_results.md` for the full tables (K = 5 and K = 10) and `reports/final_report.pdf` for the discussion.
+See `reports/model_results.md` for the full tables (K = 5 and K = 10).
 
 ## Deliverable checklist
 - Source code in modules ........ `src/`
@@ -89,7 +87,6 @@ See `reports/model_results.md` for the full tables (K = 5 and K = 10) and `repor
 - Feature catalog ............... `reports/feature_catalog.md|csv`
 - Model evaluation results ...... `reports/model_results.md|csv`
 - Orchestration workflow ........ `dags/recommendation_flow.py`; run evidence `reports/orchestration_run.png`, `reports/pipeline_run.log`
-- Final report (PDF) ............ `reports/final_report.pdf`
 
 ## Limitations
 Synthetic data (results are not comparable to real-world benchmarks); no online/streaming ingestion; single global
